@@ -1,0 +1,7 @@
+.container-sunny, .Container-cloudy
+,.Container-rainy,.container-mostry{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+color: #FFFFFF;
+}
