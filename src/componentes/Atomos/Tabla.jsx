@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Soleado from "../../assets/Img/Soleado.png" 
-import Nube from "../../assets/Img/nube.png"
-
+import Nublado from "../../assets/Img/lluvioso.png"
+import Casisoleado from "../../assets/Img/nube.png";
+import Nube from "../../assets/Img/nube.png";
 const Image = styled.img`
   width: 30%;
   height: 30%;
@@ -10,7 +11,6 @@ const Image = styled.img`
 
 const Table = styled.table`
   width: 30%;
-  
 `;
 
 const Th = styled.th`
@@ -25,7 +25,19 @@ const Td = styled.td`
   color: white;
 `;
 
-const Tabla = () => {
+const Tabla = ({ datos }) => {
+  const getImageByTemperature = (temperature) => {
+    if (temperature >= 25) {
+      return Soleado;
+    } else if (temperature >= 15) {
+      return Casisoleado;
+    } else if (temperature >= 5) {
+      return Nublado;
+    } else {
+      return Nube;
+    }
+  };
+
   return (
     <>
       <Table>
@@ -37,21 +49,16 @@ const Tabla = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <Td>2023-07-20</Td>
-            <Td>33°</Td>
-            <Td>
-              <Image src={Soleado} alt="Soleado" />Soleado
-            </Td>
-          </tr>
-          <tr>
-            <Td>2023-07-21</Td>
-            <Td>20°</Td>
-            <Td>
-              <Image src={Nube} alt="Nublado" />Parcialmente nublado
-            </Td>
-          </tr>
-         
+          {datos.map((item, index) => (
+            <tr key={index}>
+              <Td>{item.fecha}</Td>
+              <Td>{item.temperatura}°</Td>
+              <Td>
+                <Image src={getImageByTemperature(item.temperatura)} alt={item.descripcion} />
+                {item.descripcion}
+              </Td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </>

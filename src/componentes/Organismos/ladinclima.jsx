@@ -9,16 +9,11 @@ import Title from '../Atomos/Titlefecha';
 import Grados from '../Atomos/Titlegrados';
 import History from '../Molecula/History';
 import BotonRegister from '../Atomos/BotonRegister';
+import Tabla from "../Atomos/Tabla"
 import { Link } from 'react-router-dom';
 
 function Ladingclima() {
-  const currentDate = moment().format('DD MMMM YYYY');
-  const climasArray = [
-    { fecha: '2023-07-20', temperatura: '33°', descripcion: 'Soleado' },
-    { fecha: '2023-07-21', temperatura: '20°', descripcion: 'Parcialmente nublado' },
-    
-  ];
-
+  
   return (
     <>
       <div className="Container-fondo-lading">
@@ -27,7 +22,7 @@ function Ladingclima() {
             <Link to="/registro">
               <BotonRegister>Registrarse</BotonRegister>
             </Link>
-            <div><Title>{currentDate}</Title></div>
+            <div><Title></Title></div>
             <div><Sunny /></div>
             <div><Cloudy /></div>
             <div><Rainy /></div>
@@ -43,7 +38,7 @@ function Ladingclima() {
               <p>Suchiapa, Chiapas</p>
             </div>
             <div className="historial-container">
-              <History Climas={climasArray} />
+              <History Climas={Tabla}/>
             </div>
           </div>
         </div>
