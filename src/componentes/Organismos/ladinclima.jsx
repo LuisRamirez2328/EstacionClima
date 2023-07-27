@@ -19,7 +19,9 @@ function Ladingclima() {
       <div className="Container-fondo-lading">
         <div className="containe">
           <div className="datos-clima">
+            {/* El link to me ayuda a dirigirme a la ventana de registro */}
             <Link to="/registro">
+             {/*  Mando a llamar todos mis atomos con sus styled components */}
               <BotonRegister>Registrarse</BotonRegister>
             </Link>
             <div><Title></Title></div>
@@ -38,6 +40,7 @@ function Ladingclima() {
               <p>Suchiapa, Chiapas</p>
             </div>
             <div className="historial-container">
+              
               <History Climas={Tabla}/>
             </div>
           </div>

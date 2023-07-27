@@ -26,7 +26,9 @@ const Td = styled.td`
 `;
 
 const Tabla = ({ datos }) => {
+ /*  esta funcion me devuelve la imagen de acuerdo a la temperatura  */
   const getImageByTemperature = (temperature) => {
+    /* son las condiciones para mostrarme que imagen me tiene que mostrar */
     if (temperature >= 25) {
       return Soleado;
     } else if (temperature >= 15) {
@@ -49,11 +51,12 @@ const Tabla = ({ datos }) => {
           </tr>
         </thead>
         <tbody>
+         {/*  El map para iterar la fecha y la temperatura  */}
           {datos.map((item, index) => (
             <tr key={index}>
               <Td>{item.fecha}</Td>
               <Td>{item.temperatura}°</Td>
-              <Td>
+              <Td> 
                 <Image src={getImageByTemperature(item.temperatura)} alt={item.descripcion} />
                 {item.descripcion}
               </Td>
